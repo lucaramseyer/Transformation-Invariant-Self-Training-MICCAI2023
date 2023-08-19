@@ -10,13 +10,13 @@ from nets import scSE_Net_VGG16 as Net
 
 Net1 = Net
 
-Categories = ['SpectralisVsTopcon4_0','SpectralisVsTopcon4_1','SpectralisVsTopcon4_2','SpectralisVsTopcon4_3']
+Categories = ['Spectralis_0','Spectralis_1','Spectralis_2','Spectralis_3']
 Learning_Rates_init = [0.001]
 epochs = 100
 batch_size = 2
 size = 'Determined in dataset method'
 
-Dataset_Path_Train = '/storage/homefs/ng22l920/Codes/Semi_Supervised_ENCORE/Semi_Supervised_ENCORE_MICCAI23/TrainIDs_RETOUCH_DA/'
+Dataset_Path_Train = '/storage/homefs/lr13y079/Master_Thesis/Transformation-Invariant-Self-Training-MICCAI2023/TrainIDs_RETOUCH_DA2/'
 Dataset_Path_SemiTrain = ''
 Dataset_Path_Test = ''
 mask_folder = ''
