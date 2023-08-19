@@ -9,16 +9,16 @@ import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 from torchvision import transforms
-from .Metrics_ReduceMean import Dice
-from .Metrics_ReduceMean import IoU
+from .Metrics_ReduceMean import Dice_binary
+from .Metrics_ReduceMean import IoU_binary
 
 from PIL import Image
 import numpy as np
 import os
 import timeit
 
-dice_coeff = Dice()
-jaccard_index = IoU()
+dice_coeff = Dice_binary()
+jaccard_index = IoU_binary()
 
 def eval_dice_IoU_binary(net, loader, device, test_counter, save_dir, save=True):
     """Evaluation without the densecrf with the dice coefficient"""
