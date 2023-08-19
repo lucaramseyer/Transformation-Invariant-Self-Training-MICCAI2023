@@ -107,9 +107,9 @@ def train_net(net,
     test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False, pin_memory=False, drop_last=False)
     n_test = len(test_dataset)
 
-    if dataset_mode == 'csv':
-        SourceTest_loader = DataLoader(sourceTest_dataset, batch_size=1, shuffle=False, pin_memory=False, drop_last=False)
-        n_SourceTest = len(sourceTest_dataset)
+    # if dataset_mode == 'csv':
+        # SourceTest_loader = DataLoader(sourceTest_dataset, batch_size=1, shuffle=False, pin_memory=False, drop_last=False)
+        # n_SourceTest = len(sourceTest_dataset)
 
 
 
@@ -186,12 +186,12 @@ def train_net(net,
 
                     val1_source = 0
                     val3_source = 0
-                    if dataset_mode == 'csv':
+                    #if dataset_mode == 'csv':
 
-                        val1_source, _, val3_source, _, _, _, _, _, _ = eval_dice_IoU_binary(net, SourceTest_loader, device, test_counter, save_test, save=False)
+                        # val1_source, _, val3_source, _, _, _, _, _, _ = eval_dice_IoU_binary(net, SourceTest_loader, device, test_counter, save_test, save=False)
                         
-                        print(f'Source Validation Dice:{val1_source}')
-                        print(f'Source Validation IoU:{val3_source}')
+                        # print(f'Source Validation Dice:{val1_source}')
+                        # print(f'Source Validation IoU:{val3_source}')
                     
 
                     test_counter = test_counter+1
@@ -206,9 +206,9 @@ def train_net(net,
                         
                     wandb.log({'Train_Loss': loss_wandb,
                             'Test_Dice': val1,
-                            'Test_IoU': val3,
-                            'SourceTest_Dice': val1_source,
-                            'SourceTest_IoU': val3_source})
+                            'Test_IoU': val3})
+                            # 'SourceTest_Dice': val1_source,
+                            # 'SourceTest_IoU': val3_source})
                     
                     
 
@@ -334,15 +334,15 @@ if __name__ == '__main__':
                     dataset_mode = 'csv'
 
 
-                    train_IDs_CSV = Dataset_Path_Train+str(Categories[c])+'.csv'    
+                    train_IDs_CSV = Dataset_Path_Train+str(Categories[c])+'_train.csv'    
                                        
                     test_IDs_CSV = Dataset_Path_Train+str(Categories[c])+'_test.csv'    
 
-                    SourceTest_IDs_CSV = Dataset_Path_Train+str(Categories[c])+'_SourceTest.csv' 
+                    # SourceTest_IDs_CSV = Dataset_Path_Train+str(Categories[c])+'_SourceTest.csv' 
                     
-                    train_IDs_full_CSV = Dataset_Path_Train+str(Categories[c])+ '_SourceFull.csv'
+                    # train_IDs_full_CSV = Dataset_Path_Train+str(Categories[c])+ '_SourceFull.csv'
 
-                    semi_train_IDs_CSV = Dataset_Path_Train+str(Categories[c])+'_SemiSupFull.csv'
+                    # semi_train_IDs_CSV = Dataset_Path_Train+str(Categories[c])+'_SemiSupFull.csv'
 
 
                 save_test = Results_path + Visualization_path + project_name + '_' + strategy +'_Thr_'+str(hard_label_thr)+'_'+net_name +"_GCC_"+ str(GCC) +'_init_epoch_'+str(SemiSup_initial_epoch)+'_'+str(Learning_Rates_init[LR])+'_'+str(batch_size)+'_'+str(Categories[c])+'_'+'Affine_'+str(affine)+'/'
