@@ -24,7 +24,7 @@ Results_path = '../DA_ENCORE_RETOUCH_MICCAI23_Results/'
 Visualization_path = 'visualization_RETOUCH/'
 Checkpoint_path = 'checkpoints_RETOUCH/'
 CSV_path = 'CSVs_RETOUCH/'
-project_name = "ENCORE_RETOUCH_DA_MIC23_ST4"
+project_name = "ENCORE_RETOUCH_supervised_Spectralis"
 
 load = False
 load_path = ''
